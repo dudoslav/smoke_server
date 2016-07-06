@@ -1,0 +1,9 @@
+<div>
+    <h2>Computers connected:</h2>
+    <div ng-show="$ctrl.computers" class="row list-group">
+        <div class="col-md-4 list-group-item thumbnail" ng-repeat="computer in $ctrl.computers" ng-style="{ 'background-color' : '#{{computer.color}}'}">
+            <h3>{{computer.name}}</h3>
+            <h4>{{computer.ip}}</h4>
+        </div>
+    </div>
+</div>
