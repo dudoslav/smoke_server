@@ -2,18 +2,24 @@ angular.
         module('computerList').
         component('computerList', {
             templateUrl: 'computer-list/computer-list.template.html',
-            controller: function computerListController($http) {
+            controller: function ComputerListController($http, $interval) {
                 var self = this;
                 
-                $http({
-                    method: 'GET',
-                    url: '/computers'
-                }).then(function(response) {
-                    self.computers = response.data.computers;
-                    for (computer in self.computers) {
-                        self.computers[computer].color = intToRGB(hashCode(self.computers[computer].ip.split(":").pop()));
-                    }
-                });
+                self.fetchComputerList = function() {
+                    $http({
+                        method: 'GET',
+                        url: '/computers'
+                    }).then(function(response) {
+                        self.computers = response.data.computers;
+                        for (computer in self.computers) {
+                            self.computers[computer].color = intToRGB(hashCode(self.computers[computer].ip.split(":").pop()));
+                        }
+                    });
+                };
+                
+                $interval(function(){
+                    self.fetchComputerList();
+                }, 1000);
                 
             }
         });

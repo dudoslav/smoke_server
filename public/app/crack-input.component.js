@@ -2,7 +2,7 @@ angular.
         module('smokeApp').
         component('crackInput', {
             templateUrl: 'crack-input.template.html',
-            controller: function crackInputController($http) {
+            controller: function CrackInputController($http) {
                 var self = this;
                 
                 self.modulus = '11875096159523629387';
