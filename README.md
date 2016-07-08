@@ -2,6 +2,23 @@
 
 Smoke server for dividing number into two factors.
 
+## Build
+
+1. run `npm install` in root folder
+2. run `npm install` in public folder
+
+## Run
+
+To start server simply run `npm start` in root folder.
+
+Server web interface is running on port 9669.
+
+To access it try localhost:9669 in your browser.
+
+Server cloud is running on port 9666.
+
+This port is used to connect clients to.
+
 ## Protocol
 
 First byte is always packet number.
